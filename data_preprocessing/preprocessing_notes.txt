@@ -1,2 +1,13 @@
 Notes:
 
+#ordinal encoder 
+from sklearn.preprocessing import OrdinalEncoder
+
+#takes a list
+def ordinal_encoder_function(df, lst):
+    encoder=OrdinalEncoder()
+    for column in lst:
+        a=df[column].values.reshape(-1, 1)
+        result = encoder.fit_transform(a)
+        df[column]=pd.DataFrame(data=result)
+    return df
